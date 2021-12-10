@@ -1112,7 +1112,8 @@ u32 v4l2_to_hfi_flip(struct msm_vidc_inst *inst)
 
 	return flip;
 }
-
+#ifdef OEM_TARGET_PRODUCT_EBBA
+#else
 inline bool vidc_scalar_enabled(struct msm_vidc_inst *inst)
 {
 	struct v4l2_format *f;
@@ -1131,7 +1132,7 @@ inline bool vidc_scalar_enabled(struct msm_vidc_inst *inst)
 
 	return scalar_enable;
 }
-
+#endif
 
 static int msm_venc_set_csc(struct msm_vidc_inst *inst,
 					u32 color_primaries, u32 custom_matrix);
